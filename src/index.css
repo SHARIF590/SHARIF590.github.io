@@ -5,9 +5,9 @@
   :root {
     /* ===== Theme Accent (HSL hue-based) ===== */
     --hue: 160;
-    --accent-color: hsl(var(--hue), 75%, 45%);
-    --accent-color-light: hsl(var(--hue), 80%, 65%);
-    --accent-glow: hsla(var(--hue), 75%, 50%, 0.35);
+    --accent-color: #10B981;
+    --accent-color-light: #34d399;
+    --accent-glow: rgba(16, 185, 129, 0.35);
 
     /* ===== shadcn/ui tokens (dark) ===== */
     --background: 0 0% 4%;

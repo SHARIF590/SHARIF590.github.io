@@ -54,7 +54,7 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
   return (
     <span className={className}>
       {currentText}
-      <span className="text-[var(--accent-color,#10B981)] animate-pulse">|</span>
+      <span className="text-emerald-400 animate-pulse ml-0.5">|</span>
     </span>
   );
 };

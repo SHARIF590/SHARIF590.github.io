@@ -6,10 +6,9 @@ import heroSilhouette from "@/assets/image_9d0942.webp";
 export function Hero() {
   return (
     <section className="relative overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-28 lg:pt-28 lg:pb-36" id="home">
-      {/* Ambient Glow Blobs */}
-      <div className="blob-small" style={{ top: "10%", left: "5%", opacity: 0.4 }} />
-      <div className="blob-big" style={{ top: "50%", right: "10%", opacity: 0.25 }} />
-      <div className="blob-small" style={{ bottom: "15%", left: "40%", opacity: 0.3 }} />
+      {/* Ambient Glow Blobs - hidden on mobile to keep background pure black and text high-contrast */}
+      <div className="blob-small hidden sm:block" style={{ top: "10%", left: "5%", opacity: 0.15 }} />
+      <div className="blob-big hidden sm:block" style={{ top: "50%", right: "10%", opacity: 0.2 }} />
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
@@ -17,26 +16,28 @@ export function Hero() {
           {/* Left Column: Content & Typography Hierarchy */}
           <div className="lg:col-span-7 flex flex-col items-start text-left relative z-10">
             {/* Eyebrow badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-mono tracking-wider text-emerald-400 uppercase">
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1 text-xs font-mono tracking-wider text-emerald-400 uppercase">
               <span className="h-1.5 w-1.5 rounded-full bg-[#10B981]" />
-              <span>Hi! I'm Sharif — Based in Bangladesh</span>
+              <span className="text-emerald-400 font-medium">Hi! I'm Sharif — Based in Bangladesh</span>
             </div>
 
-            {/* Display Headline */}
-            <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.08] font-syne">
-              Creative Designer &<br className="hidden sm:inline" />
-              <TypewriterText
-                strings={[
-                  "Web Developer",
-                  "Creative Designer",
-                  "Automation Specialist",
-                  "Custom Solutions Builder",
-                ]}
-                className="text-emerald-400"
-                typingSpeed={90}
-                deletingSpeed={55}
-                pauseDuration={2200}
-              />
+            {/* Display Headline with fixed height container to stop display jumping up and down */}
+            <h1 className="mt-6 text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight font-syne">
+              <span className="block">Creative Designer &amp;</span>
+              <span className="block text-emerald-400 min-h-[2.4em] sm:min-h-[1.25em] mt-1 sm:mt-1.5">
+                <TypewriterText
+                  strings={[
+                    "Web Developer",
+                    "UI/UX Designer",
+                    "Automation Specialist",
+                    "Custom Solutions",
+                  ]}
+                  className="text-emerald-400"
+                  typingSpeed={90}
+                  deletingSpeed={55}
+                  pauseDuration={2200}
+                />
+              </span>
             </h1>
 
             {/* Subhead */}
