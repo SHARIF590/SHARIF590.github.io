@@ -1,31 +1,25 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Code2, Server, Palette, Search, ChevronDown } from 'lucide-react';
+import { Code2, Palette, Terminal, ChevronDown } from 'lucide-react';
 
 const services = [
   {
     icon: Code2,
     name: 'Website Developer',
-    description: 'Building professional, responsive websites with modern frameworks and clean architecture.',
-    items: ['Web Development', 'React & Next.js', 'Performance Optimization', 'Responsive Design']
-  },
-  {
-    icon: Server,
-    name: 'Backend Developer',
-    description: 'Server-side logic, database design, and API architecture for robust application backends.',
-    items: ['Node.js & Express', 'PostgreSQL', 'REST APIs', 'Database Design']
+    description: 'Building high-performance, modern responsive websites with clean code, smooth animations, and mobile-first architecture.',
+    items: ['Web Development', 'React & Vite', 'Tailwind CSS', 'Responsive Layouts', 'Performance Optimization']
   },
   {
     icon: Palette,
     name: 'Web Designer',
-    description: 'Crafting intuitive, visually stunning interfaces with attention to typography, spacing, and user experience.',
-    items: ['UI/UX Design', 'Figma Prototyping', 'Design Systems', 'Typography']
+    description: 'Crafting intuitive, visually stunning interfaces with careful attention to typography, spacing, visual hierarchy, and user experience.',
+    items: ['UI/UX Design', 'Figma Prototyping', 'Design Systems', 'Visual Hierarchy', 'Typography']
   },
   {
-    icon: Search,
-    name: 'SEO Specialist',
-    description: 'Optimizing web presence for search engines with structured data, performance tuning, and content strategy.',
-    items: ['Technical SEO', 'Core Web Vitals', 'Structured Data', 'Analytics']
+    icon: Terminal,
+    name: 'Automation Scripts & Custom Solutions',
+    description: 'Developing custom automation scripts and desktop utilities that eliminate repetitive tasks, organize files, and solve unique operational problems.',
+    items: ['Workflow Automation', 'Custom Utility Scripts', 'File System Tools', 'Task Automation', 'Python & C# Solutions']
   }
 ];
 
@@ -48,6 +42,9 @@ export function ServicesAccordion() {
             <h2 className="text-3xl sm:text-4xl font-bold font-syne text-white">
               <span className="text-emerald-400">My</span> Services
             </h2>
+            <p className="max-w-2xl font-poppins text-base text-neutral-400">
+              Specialized services focused strictly on what I excel at: crafting modern web experiences, clean visual design, and intelligent automation scripts.
+            </p>
           </div>
           
           <div className="flex flex-col gap-4">
@@ -64,7 +61,7 @@ export function ServicesAccordion() {
                 >
                   <button
                     onClick={() => toggleAccordion(index)}
-                    className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
+                    className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none cursor-pointer"
                     aria-expanded={isOpen}
                   >
                     <div className="flex items-center gap-4">
@@ -94,7 +91,7 @@ export function ServicesAccordion() {
                       >
                         <div className="px-6 pb-6 pt-2">
                           <div className="sm:ml-15">
-                            <p className="text-base text-neutral-400 font-poppins mb-4">
+                            <p className="text-base text-neutral-400 font-poppins mb-4 leading-relaxed">
                               {service.description}
                             </p>
                             <div className="flex flex-wrap gap-2">

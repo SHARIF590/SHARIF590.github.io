@@ -28,9 +28,9 @@ export function Hero() {
               <TypewriterText
                 strings={[
                   "Web Developer",
-                  "Systems Engineer",
-                  "Interface Architect",
-                  "Automation Builder",
+                  "Creative Designer",
+                  "Automation Specialist",
+                  "Custom Solutions Builder",
                 ]}
                 className="text-emerald-400"
                 typingSpeed={90}

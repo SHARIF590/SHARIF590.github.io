@@ -56,13 +56,13 @@ const projects = [
   },
   {
     number: "05",
-    title: "SEO Medicine Website",
+    title: "Downloads Organizer Utility",
     description:
-      "Search-engine-optimized medical practice website with structured data markup, appointment booking, and high Core Web Vitals performance scores.",
-    tags: ["SEO", "HTML", "Performance", "Analytics"],
+      "Lightweight, automated desktop workflow utility that auto-categorizes and sorts incoming downloads, documents, and media with zero dependencies.",
+    tags: ["Python", "Automation", "Workflow", "CLI"],
     image: workImg5,
-    githubUrl: "https://github.com/SHARIF590",
-    liveUrl: "#",
+    githubUrl: "https://github.com/SHARIF590/downloads-organizer",
+    liveUrl: "https://github.com/SHARIF590/downloads-organizer",
   },
 ];
 
