@@ -6,9 +6,10 @@ import heroSilhouette from "@/assets/image_9d0942.webp";
 export function Hero() {
   return (
     <section className="relative overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-28 lg:pt-28 lg:pb-36" id="home">
-      {/* Ambient Glow Blobs - hidden on mobile to keep background pure black and text high-contrast */}
-      <div className="blob-small hidden sm:block" style={{ top: "10%", left: "5%", opacity: 0.15 }} />
-      <div className="blob-big hidden sm:block" style={{ top: "50%", right: "10%", opacity: 0.2 }} />
+      {/* Ambient Glow Blobs - visible on both mobile and desktop for atmospheric lighting */}
+      <div className="blob-small" style={{ top: "4%", right: "2%", opacity: 0.38 }} />
+      <div className="blob-big" style={{ top: "40%", right: "5%", opacity: 0.25 }} />
+      <div className="blob-small" style={{ top: "22%", left: "-30px", opacity: 0.2 }} />
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
@@ -16,9 +17,9 @@ export function Hero() {
           {/* Left Column: Content & Typography Hierarchy */}
           <div className="lg:col-span-7 flex flex-col items-start text-left relative z-10">
             {/* Eyebrow badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1 text-xs font-mono tracking-wider text-emerald-400 uppercase">
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/15 px-3.5 py-1 text-xs font-mono tracking-wider text-emerald-300 uppercase backdrop-blur-md">
               <span className="h-1.5 w-1.5 rounded-full bg-[#10B981]" />
-              <span className="text-emerald-400 font-medium">Hi! I'm Sharif — Based in Bangladesh</span>
+              <span className="text-emerald-300 font-semibold">Hi! I'm Sharif — Based in Bangladesh</span>
             </div>
 
             {/* Display Headline with fixed height container to stop display jumping up and down */}
