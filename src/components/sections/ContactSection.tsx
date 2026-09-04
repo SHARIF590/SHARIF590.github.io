@@ -8,6 +8,7 @@ import {
   ShieldCheck,
   MapPin,
   Phone,
+  AlertCircle,
 } from "lucide-react";
 
 export function ContactSection() {
@@ -18,18 +19,51 @@ export function ContactSection() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "d8340edb-7a53-4ef4-9f87-f7ce4d8d5463",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `New Portfolio Inquiry from ${formData.name}`,
+          from_name: `${formData.name} via Sharif Portfolio`,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitted(true);
+      } else {
+        setErrorMessage(
+          result.message || "Unable to deliver message. Please contact via email directly."
+        );
+      }
+    } catch {
+      setErrorMessage(
+        "Network connection issue. Please try again or email workwithsharif.dev@gmail.com directly."
+      );
+    } finally {
       setIsSubmitting(false);
-      setSubmitted(true);
-    }, 600);
+    }
   };
 
   const handleReset = () => {
     setSubmitted(false);
+    setErrorMessage(null);
     setFormData({ name: "", email: "", message: "" });
   };
 
@@ -159,7 +193,7 @@ export function ContactSection() {
                     <span className="text-white font-medium">
                       {formData.name || "friend"}
                     </span>
-                    . I&apos;ll reply to{" "}
+                    . Your inquiry has been dispatched to my inbox. I&apos;ll reply to{" "}
                     <span className="text-emerald-400 font-mono">
                       {formData.email}
                     </span>{" "}
@@ -169,9 +203,9 @@ export function ContactSection() {
                     <button
                       type="button"
                       onClick={handleReset}
-                      className="rounded-md border border-white/15 bg-white/5 px-4 py-2 text-xs font-mono font-medium text-neutral-300 hover:bg-white/10 hover:text-white transition-colors"
+                      className="rounded-md border border-white/15 bg-white/5 px-4 py-2 text-xs font-mono font-medium text-neutral-300 hover:bg-white/10 hover:text-white transition-colors cursor-pointer"
                     >
-                      Send Another
+                      Send Another Message
                     </button>
                     <a
                       href="mailto:workwithsharif.dev@gmail.com"
@@ -183,6 +217,16 @@ export function ContactSection() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {errorMessage && (
+                    <div className="rounded-lg border border-red-500/30 bg-red-500/10 p-4 flex items-start gap-3 text-xs text-red-300">
+                      <AlertCircle className="h-4 w-4 text-red-400 shrink-0 mt-0.5" />
+                      <div>
+                        <p className="font-semibold text-red-200">Delivery Error</p>
+                        <p className="mt-0.5">{errorMessage}</p>
+                      </div>
+                    </div>
+                  )}
+
                   {/* Name */}
                   <div>
                     <label
@@ -250,16 +294,16 @@ export function ContactSection() {
                   <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
                     <div className="flex items-center gap-2 text-[11px] font-mono text-neutral-500">
                       <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
-                      <span>Direct dispatch</span>
+                      <span>Encrypted email dispatch</span>
                     </div>
 
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md bg-[#10B981] px-6 py-3 text-sm font-semibold text-black hover:bg-emerald-400 shadow-[0_0_25px_-5px_rgba(16,185,129,0.35)] hover:shadow-[0_0_30px_-3px_rgba(16,185,129,0.5)] transition-all duration-150 disabled:opacity-50"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md bg-[#10B981] px-6 py-3 text-sm font-semibold text-black hover:bg-emerald-400 shadow-[0_0_25px_-5px_rgba(16,185,129,0.35)] hover:shadow-[0_0_30px_-3px_rgba(16,185,129,0.5)] transition-all duration-150 disabled:opacity-50 cursor-pointer"
                     >
                       {isSubmitting ? (
-                        <span>Sending...</span>
+                        <span>Sending to inbox...</span>
                       ) : (
                         <>
                           <span>Send Message</span>
