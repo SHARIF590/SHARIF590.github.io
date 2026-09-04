@@ -10,11 +10,13 @@ import { ContactSection } from "@/components/sections/ContactSection";
 import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { ThemeColorPicker } from "@/components/ui/ThemeColorPicker";
+import { ScrollProgressLine } from "@/components/ui/ScrollProgressLine";
 
 export default function App() {
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-neutral-100 font-poppins antialiased">
       <CustomCursor />
+      <ScrollProgressLine />
       <ThemeColorPicker />
       <Navbar />
       <main>
