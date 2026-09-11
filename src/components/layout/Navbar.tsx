@@ -4,8 +4,9 @@ import { Menu, X, ArrowUpRight } from "lucide-react";
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "Works", href: "#work" },
-  { label: "My Services", href: "#service" },
+  { label: "Capabilities", href: "#service" },
   { label: "Skills", href: "#skills" },
+  { label: "Terminal CLI", href: "#terminal" },
 ];
 
 export function Navbar() {
@@ -22,7 +23,7 @@ export function Navbar() {
 
   // Track active section via IntersectionObserver
   useEffect(() => {
-    const sectionIds = ["home", "work", "service", "skills", "contact"];
+    const sectionIds = ["home", "work", "service", "skills", "terminal", "contact"];
     const observers: IntersectionObserver[] = [];
 
     for (const id of sectionIds) {
@@ -51,12 +52,26 @@ export function Navbar() {
       }`}
     >
       <div className="mx-auto flex h-14 sm:h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Brand */}
+        {/* Brand with Glowing Green Dot (Skillshare inspired — positioned after name, perfectly aligned) */}
         <a
           href="#home"
-          className="text-white font-syne font-semibold text-lg tracking-tight"
+          className="group inline-flex items-center gap-2 text-white transition-opacity duration-150 hover:opacity-90"
         >
-          Sharif
+          <span className="font-syne font-bold text-xl sm:text-2xl text-white tracking-tight leading-none">
+            Sharif
+          </span>
+          <span className="relative flex h-2.5 w-2.5 sm:h-3 sm:w-3 items-center justify-center shrink-0">
+            {/* Outer animated ping radar halo */}
+            <span
+              className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 duration-1000"
+              style={{ backgroundColor: "#00FF2A" }}
+            />
+            {/* Core vibrant neon dot */}
+            <span
+              className="relative inline-flex h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full shadow-[0_0_8px_#00FF2A,0_0_16px_rgba(0,255,42,0.7)]"
+              style={{ backgroundColor: "#00FF2A" }}
+            />
+          </span>
         </a>
 
         {/* Desktop Nav */}

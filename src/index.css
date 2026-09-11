@@ -132,9 +132,12 @@
   border-radius: 50%;
   position: absolute;
   z-index: 0;
-  filter: blur(60px);
+  filter: blur(50px);
   animation: blob-pulse 6s ease-in-out infinite;
   pointer-events: none;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  contain: layout style;
 }
 
 .blob-big {
@@ -144,9 +147,21 @@
   border-radius: 50%;
   position: absolute;
   z-index: 0;
-  filter: blur(120px);
+  filter: blur(90px);
   animation: blob-pulse 8s ease-in-out infinite 1s;
   pointer-events: none;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  contain: layout style;
+}
+
+/* Hide scrollbar for clean horizontal docks */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* ===== Smooth scroll ===== */
@@ -159,3 +174,36 @@ html {
   background-color: var(--accent-color, #10B981);
   color: #000;
 }
+
+/* ===== Cyber & Animaster / Vengeance / Skiper Utilities ===== */
+.bg-cyber-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+.bg-cyber-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.cyber-scanlines {
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+

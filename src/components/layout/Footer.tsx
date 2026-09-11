@@ -49,8 +49,9 @@ export function Footer() {
         <div className="pt-10 flex flex-col sm:flex-row items-center justify-between gap-6">
           {/* Left: Brand + Copyright */}
           <div className="flex items-center gap-3 text-xs font-mono text-neutral-500">
-            <span className="font-semibold text-neutral-300 uppercase font-syne">
-              Sharif
+            <span className="inline-flex items-center gap-1.5 font-bold text-white uppercase font-syne tracking-tight">
+              <span>Sharif</span>
+              <span className="h-1.5 w-1.5 rounded-full bg-[#00FF2A] shadow-[0_0_6px_#00FF2A]" />
             </span>
             <span>·</span>
             <span>&copy; {currentYear} All rights reserved.</span>
